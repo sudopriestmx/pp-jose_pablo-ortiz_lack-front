@@ -1,8 +1,8 @@
-#Fullstack MEAN Test (Frontend)
+# Fullstack MEAN Test (Frontend)
 
 AngularJS web app for user administration. Developed for knowledge asessment test.
 
-##Quick start
+## Quick start
 > Note: Use Node.JS v. 12.16.1, npm 6.14.5 and mongodb v. 4.2 for guaranteed working results
 > Clone/Download the repo, install npm dependencies and run the webpack server
 ```bash
