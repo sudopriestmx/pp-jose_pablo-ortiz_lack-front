@@ -1,0 +1,120 @@
+<main>
+  <h1 class="title">MEAN Test Frontend</h1>
+  <h2 class="title">New User Form</h2>
+    <form class="content-center" name="$ctrl.newUserForm" ng-submit="$ctrl.createUser()"' novalidate>
+        <table class="new-user-table">
+            <tr>
+                <td>
+                    <div class="form-field">
+                        <label>Name</label>
+                        <br>
+                        <input type="text" name="name" ng-model="$ctrl.user.name" ng-model-options="{ updateOn: 'blur' }" required>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-field">
+                        <label>Email</label>
+                        <br>
+                        <input type="email" name="email" ng-model="$ctrl.user.email" ng-model-options="{ updateOn: 'blur' }" required>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-field">
+                        <label>Phone</label>
+                        <br>
+                        <input type="number" name="phone" ng-model="$ctrl.user.phone" ng-model-options="{ updateOn: 'blur' }" required>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-field">
+                        <label>Password</label>
+                        <br>
+                        <input type="password" name="password" ng-model="$ctrl.user.password" ng-model-options="{ updateOn: 'blur' }" required >
+                    </div>
+                </td>
+            <tr>
+            <tr>
+                <td>
+                    <div class="form-field">
+                        <label>Age</label>
+                        <br>
+                        <input type="text" name="age" ng-model="$ctrl.user.age" ng-model-options="{ updateOn: 'blur' }" required>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-field">
+                        <label for="genderSelect">Gender</label>
+                        <br>
+                        <select name="genderSelect" id="genderSelect" ng-model="$ctrl.user.gender" required>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-field">
+                        <label>Hobby</label>
+                        <br>
+                        <input type="text" name="hobby" ng-model="$ctrl.user.hobby" ng-model-options="{ updateOn: 'blur' }" required>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-field">
+                        <button type="submit" ng-disabled="$ctrl.newUserForm.$invalid || $ctrl.newUserForm.$untouched">Create User</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <h2 class="title">User List</h2>
+    <form name="$ctrl.filterUsersForm" ng-submit="$ctrl.filterUsers()"'>
+      <table class="user-filter-form">
+        <tr>
+          <td>
+            <div>
+              <span>Name</span>
+              <input type="text" name="name" ng-model="$ctrl.filter.name" ng-model-options="{ updateOn: 'blur' }">
+          </div>
+          </td>
+          <td>
+            <div>
+              <span>Hobby</span>
+              <input type="text" name="hobby" ng-model="$ctrl.filter.hobby">
+            </div>
+          </td>
+          <td>
+            <div>
+              <button type="submit">Filter Users</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+  </form>
+  <table class="user-list-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Hobby</th>
+        <th>Creation Date</th>
+      </tr>
+    </thead>
+    <tr ng-repeat="user in $ctrl.users">
+      <td class="user-list-cell">{{user.name}}</td>
+      <td class="user-list-cell">{{user.phone}}</td>
+      <td class="user-list-cell">{{user.age}}</td>
+      <td class="user-list-cell">{{user.gender}}</td>
+      <td class="user-list-cell">{{user.hobby}}</td>
+      <td class="user-list-cell">{{user.registrationDate | date : 'dd/MM/yyyy HH:mm:ss'}}</td>
+      <td><button ng-click="$ctrl.deleteUser(user._id)">Delete User</button></td>
+    </tr>
+  </table>
+</main>
